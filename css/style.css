@@ -1,0 +1,240 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboardHeader {
+    text-align: center;
+    background-image: linear-gradient(to bottom right, rgb(44, 63, 236), rgb(25, 23, 151), rgb(19, 6, 92));
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    min-width: 350px;
+}
+
+body {
+    background-color: rgb(225, 226, 228);
+}
+
+h1 {
+    padding-top: 15px;
+    color: whitesmoke;
+    font-family: Arial;
+    font-weight: bolder;
+}
+
+.searchContainer {
+    margin-left: 40px;
+    float: left;
+    margin-top: 15px;
+}
+
+.searchText {
+    font-size: 35px;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.searchBtn {
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: rgb(27, 135, 236);
+    border-color: whitesmoke;
+    color: white;
+    border-width: 1px;
+    width: 300px;
+    height: 42px;
+}
+
+.searchBtn:hover {
+    font-weight: 700;
+}
+
+.form-input {
+    border-radius: 5px;
+    border-style: solid;
+    box-shadow: 1px 1px 1px rgb(119, 136, 153);
+    height: 42px;
+    width: 300px;
+}
+
+.historyLinks {
+    margin-top: 10px;
+    width: 300px;
+    height: 450px;
+}
+
+h4 {
+    text-align: center;
+}
+
+.historyCityBtn {
+    margin-top: 25px;
+    width: 250px;
+    background-color: rgb(168, 167, 167);
+    border-radius: 2px;
+    height: 42px;
+    text-align: center;
+    width: 300px;
+    cursor: pointer;
+}
+
+.historyCityBtn:hover {
+    transition: all .3s ease-in-out;
+    background-color: rgb(192, 236, 238);
+    font-weight: 700;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 100px;
+}
+
+.weatherDisplay {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1px;
+    text-align: left;
+    margin-top: 20px;
+    box-shadow: 1px 1px 1px lightslategray;
+    width: 98%;
+    margin-bottom: 7px;
+    padding: 2rem;
+}
+
+.targetDetails {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+#currentDate {
+    font-size: 25px;
+    margin-left: 8px;
+}
+
+#currentCity {
+    font-size: 40px;
+    display: flex;
+    margin: 0;
+    margin-left: 15px;
+}
+
+#currentTemp,
+#weatherIcon,
+#currentHumid,
+#currentWind {
+    margin-left: 8px;
+    font-size: 17px;
+    margin-right: 3px;
+}
+
+#currentUvIndex {
+    height: 30px;
+    width: 120px;
+    background-color: #008000;
+}
+
+.units {
+    margin-left: 2px;
+    font-size: 17px;
+}
+
+#weatherIcon {
+    margin-left: 15px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+}
+
+h3,
+h5,
+#targetDetails {
+    margin-left: 10px;
+}
+
+#targetDetails {
+    margin-bottom: 8px;
+}
+
+.temperature {
+    margin-top: 10px;
+}
+
+.fiveDayForecast {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.forecastContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.forecastDate {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#dateAIcon,
+#dateBIcon,
+#dateCIcon,
+#dateDIcon,
+#dateEIcon {
+    padding: 3px;
+    min-height: 30px;
+    min-width: 30px;
+}
+
+.humidity2 {
+    margin-bottom: 5px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.temp {
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+
+.fiveDay {
+    margin-right: 30px;
+}
+
+#forecastA,
+#forecastB,
+#forecastC,
+#forecastD,
+#forecastE {
+    border-style: solid;
+    border-color: lightslategray;
+    border-width: 1px;
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px lightslategray;
+    text-align: left;
+    background-color: rgb(9, 62, 83);
+    color: white;
+    font-size: 18px;
+    min-width: 134px;
+    min-height: 150px;
+}
+
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        padding-left: 50px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .wrapper {
+        flex-direction: column;
+        padding-left: 40px;
+        float: left;
+    }
+}

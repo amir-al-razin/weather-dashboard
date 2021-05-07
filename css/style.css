@@ -1,184 +1,230 @@
-* {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic);
 
-.dashboardHeader {
-    text-align: center;
-    background-image: linear-gradient(to bottom right, rgb(44, 63, 236), rgb(25, 23, 151), rgb(19, 6, 92));
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    height: 70px;
-    min-width: 350px;
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: rgb(225, 226, 228);
+  background-color: rgb(226, 243, 255);
+  font-family: "Open Sans", sans-serif;
 }
+
+/* html elements */
 
 h1 {
-    padding-top: 15px;
-    color: whitesmoke;
-    font-family: Arial;
-    font-weight: bolder;
-}
-
-.searchContainer {
-    margin-left: 40px;
-    float: left;
-    margin-top: 15px;
-}
-
-.searchText {
-    font-size: 35px;
-    margin-left: 5px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
-.searchBtn {
-    border-radius: 5px;
-    margin-top: 15px;
-    background-color: rgb(27, 135, 236);
-    border-color: whitesmoke;
-    color: white;
-    border-width: 1px;
-    width: 300px;
-    height: 42px;
-}
-
-.searchBtn:hover {
-    font-weight: 700;
-}
-
-.form-input {
-    border-radius: 5px;
-    border-style: solid;
-    box-shadow: 1px 1px 1px rgb(119, 136, 153);
-    height: 42px;
-    width: 300px;
-}
-
-.historyLinks {
-    margin-top: 10px;
-    width: 300px;
-    height: 450px;
+  padding-top: 15px;
+  color: whitesmoke;
+  font-family: Arial;
+  font-weight: bolder;
 }
 
 h4 {
-    text-align: center;
+  text-align: center;
+}
+
+/* header */
+.dashboardHeader {
+  text-align: center;
+  padding-block: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 0, 92, 1) 0%,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  gap: 3rem;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0.5rem;
+  align-items: stretch;
+  margin-block: 1.25rem;
+  border-radius: 0.5rem;
+  background: rgb(243, 249, 253);
+}
+
+.searchText {
+  font-size: 2rem;
+  letter-spacing: -1.5px;
+  font-weight: bold;
+  margin: 1rem 0.5rem;
+
+}
+
+.searchBtn {
+  border: none;
+  margin-top: 15px;
+  transition: all 0.2s ease-in-out;
+  background: linear-gradient(
+    90deg,
+    rgb(45, 40, 134) 0%,
+    rgb(37, 37, 149) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.25rem;
+}
+
+.searchBtn:hover {
+  transform: scale(1.02);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form-input {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.25rem;
+  outline: none;
+}
+
+.form-input::placeholder{
+  font-weight: 600;
+}
+
+.historyLinks {
+  margin-top: .5rem;
+  max-width: 300px;
+  
+
+  
+}
+
+.historyLinks > p{
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+#history{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .historyCityBtn {
-    margin-top: 25px;
-    width: 250px;
-    background-color: rgb(168, 167, 167);
-    border-radius: 2px;
-    height: 42px;
-    text-align: center;
-    width: 300px;
-    cursor: pointer;
+  margin: 0.25rem;
+  border: none;
+  padding: 0.5rem 2rem;
+  background-color: rgb(222, 244, 253);
+  border-radius: 0.5rem;
+ text-align: left;
+  cursor: pointer;
 }
 
 .historyCityBtn:hover {
-    transition: all .3s ease-in-out;
-    background-color: rgb(192, 236, 238);
-    font-weight: 700;
+  transition: all 0.2s;
+  background-color: rgb(179, 233, 255);
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .weatherDisplay {
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 1px;
-    text-align: left;
-    margin-top: 20px;
-    box-shadow: 1px 1px 1px lightslategray;
-    width: 98%;
-    margin-bottom: 7px;
-    padding: 2rem;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1px;
+  text-align: left;
+  margin-top: 20px;
+  box-shadow: 1px 1px 1px lightslategray;
+  width: 98%;
+  margin-bottom: 7px;
+  padding: 2rem;
 }
 
 .targetDetails {
-    margin-left: 20px;
-    font-size: 20px;
+  margin-left: 20px;
+  font-size: 20px;
 }
 
 #currentDate {
-    font-size: 25px;
-    margin-left: 8px;
+  font-size: 25px;
+  margin-left: 8px;
 }
 
 #currentCity {
-    font-size: 40px;
-    display: flex;
-    margin: 0;
-    margin-left: 15px;
+  font-size: 40px;
+  display: flex;
+  margin: 0;
+  margin-left: 15px;
 }
 
 #currentTemp,
 #weatherIcon,
 #currentHumid,
 #currentWind {
-    margin-left: 8px;
-    font-size: 17px;
-    margin-right: 3px;
+  margin-left: 8px;
+  font-size: 17px;
+  margin-right: 3px;
 }
 
 #currentUvIndex {
-    height: 30px;
-    width: 120px;
-    background-color: #008000;
+  height: 30px;
+  width: 120px;
+  background-color: #008000;
 }
 
 .units {
-    margin-left: 2px;
-    font-size: 17px;
+  margin-left: 2px;
+  font-size: 17px;
 }
 
 #weatherIcon {
-    margin-left: 15px;
-    height: 100px;
-    width: 100px;
-    display: flex;
+  margin-left: 15px;
+  height: 100px;
+  width: 100px;
+  display: flex;
 }
 
 h3,
 h5,
 #targetDetails {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 #targetDetails {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .temperature {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .fiveDayForecast {
-    text-align: left;
-    margin-top: 10px;
+  text-align: left;
+  margin-top: 10px;
 }
 
 .forecastContainer {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .forecastDate {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #dateAIcon,
@@ -186,25 +232,25 @@ h5,
 #dateCIcon,
 #dateDIcon,
 #dateEIcon {
-    padding: 3px;
-    min-height: 30px;
-    min-width: 30px;
+  padding: 3px;
+  min-height: 30px;
+  min-width: 30px;
 }
 
 .humidity2 {
-    margin-bottom: 5px;
-    text-align: left;
-    margin-left: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+  margin-left: 5px;
 }
 
 .temp {
-    text-align: left;
-    margin-left: 5px;
-    margin-top: 20px;
+  text-align: left;
+  margin-left: 5px;
+  margin-top: 20px;
 }
 
 .fiveDay {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 #forecastA,
@@ -212,29 +258,28 @@ h5,
 #forecastC,
 #forecastD,
 #forecastE {
-    border-style: solid;
-    border-color: lightslategray;
-    border-width: 1px;
-    border-radius: 1px;
-    box-shadow: 1px 1px 1px lightslategray;
-    text-align: left;
-    background-color: rgb(9, 62, 83);
-    color: white;
-    font-size: 18px;
-    min-width: 134px;
-    min-height: 150px;
+  border-style: solid;
+  border-color: lightslategray;
+  border-width: 1px;
+  border-radius: 1px;
+  box-shadow: 1px 1px 1px lightslategray;
+  text-align: left;
+  background-color: rgb(9, 62, 83);
+  color: white;
+  font-size: 18px;
+  min-width: 134px;
+  min-height: 150px;
 }
 
 @media screen and (max-width: 1000px) {
-    .wrapper {
-        padding-left: 50px;
-    }
+  .wrapper {
+    padding-left: 50px;
+  }
 }
 
 @media screen and (max-width: 780px) {
-    .wrapper {
-        flex-direction: column;
-        padding-left: 40px;
-        float: left;
-    }
+  .wrapper {
+    flex-direction: column;
+    padding-left: 40px;
+  }
 }

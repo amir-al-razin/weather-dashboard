@@ -1,107 +1,122 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Weather Dashboard</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<body>
+  <body>
     <!-- input field -->
     <div class="dashboardHeader">
-        <h1>Weather Dashboard</h1>
+      <h1>Weather Dashboard</h1>
     </div>
-    <div class="searchContainer" id="searchQuick">
-        <h3 class="searchText">Search for a City:</h3><br>
+    <div class="container">
+      <!-- input field -->
+      <div class="searchContainer" id="searchQuick">
+        <h3 class="searchText">Search for a City:</h3>
+       
 
-        <form id="user-form" name="user-form" class="card-Body">
-
-            <input name="city-name" id="city-name" type="text" autofocus="true" class="form-input" placeholder="  Type City Name Here" />
-            <br>
-            <button class="searchBtn" id="searchBtn">Search</button>
+        <form id="user-form" name="user-form" class="card-body">
+          <input
+            name="city-name"
+            id="city-name"
+            type="text"
+            autofocus="true"
+            class="form-input"
+            placeholder="  Type City Name Here"
+          />
+       
+          <button class="searchBtn" id="searchBtn">Search</button>
         </form>
-        <hr>
+        <hr />
         <div class="historyLinks">
-            <h4 id="history"></h4>
+            <p>History:</p>
+          <h4 id="history"></h4>
         </div>
-    </div>
+      </div>
 
-    <!-- display part -->
-    <div class="wrapper">
-
+      <!-- display part -->
+      <div class="wrapper">
         <div class="weatherDisplay" id="targetCityWeather">
-            <div>
-                <h3 id="currentCity"></h3>
-            </div>
-            <div>
-                <h5 id="today"><span id="currentDate"></span></h5>
-            </div>
-            <i id="weatherIcon"></i>
+          <div>
+            <h3 id="currentCity"></h3>
+          </div>
+          <div>
+            <h5 id="today"><span id="currentDate"></span></h5>
+          </div>
+          <i id="weatherIcon"></i>
 
-            <div id="currentTemperature" class="targetDetails">Temp: <span id="currentTemp"></span></div>
-            <div id="currentHumidity" class="targetDetails">Humidity:<span id="currentHumid"></span></div>
-            <div id="currentWindSpeed" class="targetDetails">Wind Speed:<span id="currentWind"></span></div>
-            <div id="currentUvIndex"  class="targetDetails">UV Index:
-                <p id="currentUv" class="currentUv"></p>
-            </div>
+          <div id="currentTemperature" class="targetDetails">
+            Temp: <span id="currentTemp"></span>
+          </div>
+          <div id="currentHumidity" class="targetDetails">
+            Humidity:<span id="currentHumid"></span>
+          </div>
+          <div id="currentWindSpeed" class="targetDetails">
+            Wind Speed:<span id="currentWind"></span>
+          </div>
+          <div id="currentUvIndex" class="targetDetails">
+            UV Index:
+            <p id="currentUv" class="currentUv"></p>
+          </div>
         </div>
 
         <div class="fiveDayForecast" id="fiveDayForecast">
-            <h3>5-Day Forecast</h3>
-            <div class="forecastContainer" id="forecastContainer">
-
-                <div id="forecastA" class="fiveDay">
-                    <p class="forecastDate"><span id="dateA"></span></p>
-                    <i class="icon"><span id = "dateAIcon"></span></i>
-                    <p class="temp">Temp: <span id="dateATemp"></span></p>
-                    <p class="humidity2">Humidity: <span id="dateAHumid"></span></p>
-                </div>
-
-                <div id="forecastB" class="fiveDay">
-                    <p class="forecastDate"><span id="dateB"></span></p>
-                    <i class="icon"><span id = "dateBIcon"></span></i>
-                    <p class="temp">Temp: <span id="dateBTemp"></span></p>
-                    <p class="humidity2">Humidty: <span id="dateBHumid"></span></p>
-                </div>
-
-                <div id="forecastC" class="fiveDay">
-                    <p class="forecastDate"><span id="dateC"></span></p>
-                    <i class="icon"><span id = "dateCIcon"></span></i>
-                    <p class="temp">Temp: <span id="dateCTemp"></span></p>
-                    <p class="humidity2">Humidity: <span id="dateCHumid"></span></p>
-                </div>
-
-                <div id="forecastD" class="fiveDay">
-                    <p class="forecastDate"><span id="dateD"></span></p>
-                    <i class="icon"><span id = "dateDIcon"></span></i>
-                    <p class="temp">Temp: <span id="dateDTemp"></span></p>
-                    <p class="humidity2">Humidity: <span id="dateDHumid"></span></p>
-                </div>
-
-                <div id="forecastE" class="fiveDay">
-                    <p class="forecastDate"><span id="dateE"></span></p>
-                    <i class="icon"><span id = "dateEIcon"></span></i>
-                    <p class="temp">Temp: <span id="dateETemp"></span></p>
-                    <p class="humidity2">Humidity: <span id="dateEHumid"></span></p>
-                </div>
-
+          <h3>5-Day Forecast</h3>
+          <div class="forecastContainer" id="forecastContainer">
+            <div id="forecastA" class="fiveDay">
+              <p class="forecastDate"><span id="dateA"></span></p>
+              <i class="icon"><span id="dateAIcon"></span></i>
+              <p class="temp">Temp: <span id="dateATemp"></span></p>
+              <p class="humidity2">Humidity: <span id="dateAHumid"></span></p>
             </div>
 
-        </div>
+            <div id="forecastB" class="fiveDay">
+              <p class="forecastDate"><span id="dateB"></span></p>
+              <i class="icon"><span id="dateBIcon"></span></i>
+              <p class="temp">Temp: <span id="dateBTemp"></span></p>
+              <p class="humidity2">Humidty: <span id="dateBHumid"></span></p>
+            </div>
 
+            <div id="forecastC" class="fiveDay">
+              <p class="forecastDate"><span id="dateC"></span></p>
+              <i class="icon"><span id="dateCIcon"></span></i>
+              <p class="temp">Temp: <span id="dateCTemp"></span></p>
+              <p class="humidity2">Humidity: <span id="dateCHumid"></span></p>
+            </div>
+
+            <div id="forecastD" class="fiveDay">
+              <p class="forecastDate"><span id="dateD"></span></p>
+              <i class="icon"><span id="dateDIcon"></span></i>
+              <p class="temp">Temp: <span id="dateDTemp"></span></p>
+              <p class="humidity2">Humidity: <span id="dateDHumid"></span></p>
+            </div>
+
+            <div id="forecastE" class="fiveDay">
+              <p class="forecastDate"><span id="dateE"></span></p>
+              <i class="icon"><span id="dateEIcon"></span></i>
+              <p class="temp">Temp: <span id="dateETemp"></span></p>
+              <p class="humidity2">Humidity: <span id="dateEHumid"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <!-- <script src="./js/main.js"></script> -->
     <script src="./js/index.js"></script>
     <script src="./js/fiveDays.js"></script>
-
-
-</body>
-
+  </body>
 </html>

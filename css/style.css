@@ -248,9 +248,7 @@ h5,
   font-weight: bold;
   font-size: 2rem;
   margin-block: .75rem;
-  text-decoration: underline;
-  text-decoration-color: var(--currentWeatherBg);
-  text-decoration-thickness: 0.2rem;
+
 }
 
 .forecastContainer {

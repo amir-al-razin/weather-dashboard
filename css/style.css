@@ -113,7 +113,14 @@ h4 {
 .historyLinks {
   margin-top: 0.5rem;
   max-width: 300px;
+  transition: all .8s;
+ 
+
 }
+
+
+
+
 
 .historyLinks > p {
   font-weight: bold;
@@ -123,7 +130,31 @@ h4 {
 #history {
   display: flex;
   flex-wrap: wrap;
+  overflow-y: scroll;
+  max-height: 200px;
 }
+
+/* scroll bar */
+
+/* width */
+#history::-webkit-scrollbar {
+  width: .6rem;
+  border-radius: 1rem;
+  
+
+  
+ 
+}
+/* Handle */
+#history::-webkit-scrollbar-thumb {
+  background-color: rgb(222, 244, 253);
+  border-radius: 1rem;
+  transition: all 0.2s;
+
+}
+
+
+
 
 .historyCityBtn {
   margin: 0.25rem;

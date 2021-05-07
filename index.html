@@ -25,7 +25,6 @@
       <!-- input field -->
       <div class="searchContainer" id="searchQuick">
         <h3 class="searchText">Search for a City:</h3>
-       
 
         <form id="user-form" name="user-form" class="card-body">
           <input
@@ -36,42 +35,48 @@
             class="form-input"
             placeholder="  Type City Name Here"
           />
-       
+
           <button class="searchBtn" id="searchBtn">Search</button>
         </form>
         <hr />
         <div class="historyLinks">
-            <p>History:</p>
+          <p>History:</p>
           <h4 id="history"></h4>
         </div>
       </div>
 
       <!-- display part -->
       <div class="wrapper">
+        <!-- current day -->
         <div class="weatherDisplay" id="targetCityWeather">
           <div>
-            <h3 id="currentCity"></h3>
+            <div>
+              <h3 id="currentCity"></h3>
+            </div>
+            <div>
+              <h5 id="today"><span id="currentDate"></span></h5>
+            </div>
+            <i id="weatherIcon"></i>
           </div>
-          <div>
-            <h5 id="today"><span id="currentDate"></span></h5>
-          </div>
-          <i id="weatherIcon"></i>
 
-          <div id="currentTemperature" class="targetDetails">
-            Temp: <span id="currentTemp"></span>
-          </div>
-          <div id="currentHumidity" class="targetDetails">
-            Humidity:<span id="currentHumid"></span>
-          </div>
-          <div id="currentWindSpeed" class="targetDetails">
-            Wind Speed:<span id="currentWind"></span>
-          </div>
-          <div id="currentUvIndex" class="targetDetails">
-            UV Index:
-            <p id="currentUv" class="currentUv"></p>
+          <div>
+            <div id="currentTemperature" class="targetDetails">
+              Temp: <span id="currentTemp"></span>
+            </div>
+            <div id="currentHumidity" class="targetDetails">
+              Humidity:<span id="currentHumid"></span>
+            </div>
+            <div id="currentWindSpeed" class="targetDetails">
+              Wind Speed:<span id="currentWind"></span>
+            </div>
+            <div id="currentUvIndex" class="targetDetails">
+              UV Index:
+              <p id="currentUv" class="currentUv"></p>
+            </div>
           </div>
         </div>
 
+        <!-- displaying fivedays data -->
         <div class="fiveDayForecast" id="fiveDayForecast">
           <h3>5-Day Forecast</h3>
           <div class="forecastContainer" id="forecastContainer">
@@ -117,6 +122,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <!-- <script src="./js/main.js"></script> -->
     <script src="./js/index.js"></script>
-    <script src="./js/fiveDays.js"></script>
   </body>
 </html>

@@ -2,17 +2,17 @@
 const key = "0642f62247cd5fc4b4b2603fcde8ec95";
 
 // html dom selector
-const targetCityWeatherElement = document.getElementById("targetCityWeather");
-const weatherIconElement = document.getElementById("weatherIcon");
-const uvIndexSpan = document.getElementById("currentUv");
-const uvIndexElement = document.getElementById("currentUvIndex");
+const targetCityWeatherElement = document.querySelector("#targetCityWeather");
+const weatherIconElement = document.querySelector("#weatherIcon");
+const uvIndexSpan = document.querySelector("#currentUv");
+const uvIndexElement = document.querySelector("#currentUvIndex");
 const allDates = document.querySelectorAll(".fiveDay");
-const forecastDate = document.getElementById("forecastDate");
-const historyLinks = document.getElementById("history");
-const currentCity = document.getElementById("currentCity");
-const userFormEl = document.getElementById("user-form");
-const userCityNameElement = document.getElementById("city-name");
-const searchBtnElement = document.getElementById("searchBtn");
+const forecastDate = document.querySelector("#forecastDate");
+const historyLinks = document.querySelector("#history");
+const currentCity = document.querySelector("#currentCity");
+const userFormEl = document.querySelector("#user-form");
+const userCityNameElement = document.querySelector("#city-name");
+const searchBtnElement = document.querySelector("#searchBtn");
 
 // helper function
 const citySelect = userCityNameElement.value.trim();
@@ -105,15 +105,15 @@ async function get5day(lat, lon) {
   uvIndexElement.textContent = "UV Index: " + uvIndex;
 
   if (uvIndex >= 0 && uvIndex <= 3) {
-    uvIndexElement.setAttribute("style", "background-color: green");
+    uvIndexSpan.setAttribute("style", "background-color: green");
   } else if (uvIndex > 3 && uvIndex <= 6) {
-    uvIndexElement.setAttribute("style", "background-color: yellow");
+    uvIndexSpan.setAttribute("style", "background-color: yellow");
   } else if (uvIndex > 6 && uvIndex <= 7) {
-    uvIndexElement.setAttribute("style", "background-color: orange");
+    uvIndexSpan.setAttribute("style", "background-color: orange");
   } else if (uvIndex > 7 && uvIndex <= 10) {
-    uvIndexElement.setAttribute("style", "background-color: red");
+    uvIndexSpan.setAttribute("style", "background-color: red");
   } else if (uvIndex >= 11) {
-    uvIndexElement.setAttribute("style", "background-color: violet");
+    uvIndexSpan.setAttribute("style", "background-color: violet");
   }
 
   //5-day forecast loop for getting info from indexes 1 - 5 as they contain the forecast. Index 0 is the current day's weather.

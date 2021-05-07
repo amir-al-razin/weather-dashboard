@@ -4,8 +4,10 @@ const key = "0642f62247cd5fc4b4b2603fcde8ec95";
 // html dom selector
 const targetCityWeatherElement = document.querySelector("#targetCityWeather");
 const weatherIconElement = document.querySelector("#weatherIcon");
+// uv index element
 const uvIndexSpan = document.querySelector("#currentUv");
 const uvIndexElement = document.querySelector("#currentUvIndex");
+
 const allDates = document.querySelectorAll(".fiveDay");
 const forecastDate = document.querySelector("#forecastDate");
 const historyLinks = document.querySelector("#history");
@@ -70,12 +72,12 @@ async function getUserWeather(cityName, isFromHistory) {
   currentDate.textContent = today;
 
   //create button for search history
-  var btn = document.createElement("button");
+  let btn = document.createElement("button");
 
   btn.classList = "historyCityBtn";
   btn.textContent = cityName;
 
-  var cities = JSON.parse(localStorage.getItem("cities"));
+  let cities = JSON.parse(localStorage.getItem("cities"));
   if (!cities) {
     cities = [];
   }
@@ -100,36 +102,44 @@ async function get5day(lat, lon) {
   console.log(fiveDaysData);
 
   //Getting UV index for current weather.
-  var uvIndex = fiveDaysData.current.uvi;
+  let uvIndex = fiveDaysData.current.uvi;
   uvIndex = Math.ceil(uvIndex);
-  uvIndexElement.textContent = "UV Index: " + uvIndex;
+  uvIndexSpan.textContent = uvIndex;
 
-  if (uvIndex >= 0 && uvIndex <= 3) {
-    uvIndexSpan.setAttribute("style", "background-color: green");
-  } else if (uvIndex > 3 && uvIndex <= 6) {
-    uvIndexSpan.setAttribute("style", "background-color: yellow");
-  } else if (uvIndex > 6 && uvIndex <= 7) {
-    uvIndexSpan.setAttribute("style", "background-color: orange");
-  } else if (uvIndex > 7 && uvIndex <= 10) {
-    uvIndexSpan.setAttribute("style", "background-color: red");
-  } else if (uvIndex >= 11) {
-    uvIndexSpan.setAttribute("style", "background-color: violet");
+  
+
+  switch (true) {
+    case uvIndex >= 0 && uvIndex <= 3:
+      uvIndexSpan.setAttribute("style", "background-color: green");
+      break;
+    case uvIndex > 3 && uvIndex <= 6:
+      uvIndexSpan.setAttribute("style", "background-color: yellow");
+      break;
+    case uvIndex > 6 && uvIndex <= 7:
+      uvIndexSpan.setAttribute("style", "background-color: orange");
+      break;
+    case uvIndex > 7 && uvIndex <= 10:
+      uvIndexSpan.setAttribute("style", "background-color: red");
+      break;
+    case uvIndex >= 11:
+      uvIndexSpan.setAttribute("style", "background-color: violet");
+      break;
   }
 
   //5-day forecast loop for getting info from indexes 1 - 5 as they contain the forecast. Index 0 is the current day's weather.
   for (index = 1; index < 6; index++) {
-    var day = fiveDaysData.daily[index];
-    var temp = parseFloat(day.temp.max);
+    let day = fiveDaysData.daily[index];
+    let temp = parseFloat(day.temp.max);
     temp = Math.ceil(temp);
     //clear the forecast elements
     allDates[index - 1].innerHTML = "";
     //create the forecast elements
-    var p = document.createElement("p");
-    var p2 = document.createElement("img");
-    var p3 = document.createElement("p");
-    var p4 = document.createElement("p");
+    let p = document.createElement("p");
+    let p2 = document.createElement("img");
+    let p3 = document.createElement("p");
+    let p4 = document.createElement("p");
     p.textContent = moment
-      .unix(fiveDaysData.daily[index].dt)
+      .unix(day.dt)
       .format("MM/DD/YYYY");
 
     allDates[index - 1].appendChild(p);
@@ -153,7 +163,7 @@ async function get5day(lat, lon) {
 
 //funciton to access local storage so history buttons will show weather
 function getHistoryWeather() {
-  var cities = JSON.parse(localStorage.getItem("cities"));
+  const cities = JSON.parse(localStorage.getItem("cities"));
 
   if (cities) {
     for (let index = 0; index < cities.length; index++) {

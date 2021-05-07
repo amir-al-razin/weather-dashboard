@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic);
 
 :root {
-
-  
   --searchBg: rgb(243, 249, 253);
   --currentWeatherBg: #083f50;
   --boxShadow: 0 0px 50px -12px rgb(182, 225, 255);
@@ -142,6 +140,7 @@ h4 {
   background-color: rgb(179, 233, 255);
 }
 
+/* display section */
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -155,10 +154,22 @@ h4 {
   text-align: left;
   margin-top: 20px;
   width: 90%;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2rem;
   background: var(--currentWeatherBg);
   box-shadow: var(--boxShadow);
   color: whitesmoke;
+  position: relative;
+}
+
+.weatherDisplay::after {
+  content: "";
+  position: absolute;
+  height: 80%;
+  width: 2px;
+  background: rgb(9, 84, 114);
+  border-radius: 15%;
+  left: 50%;
+  bottom: 10%;
 }
 
 .targetDetails {
@@ -194,7 +205,12 @@ h4 {
 #currentUvIndex {
   height: 30px;
   width: 120px;
-  background-color: #008000;
+}
+
+#currentUv {
+  padding-inline: 0.2rem;
+  border-radius: 0.25rem;
+  background: green;
 }
 
 .units {
@@ -232,6 +248,9 @@ h5,
   font-weight: bold;
   font-size: 2rem;
   margin-block: .75rem;
+  text-decoration: underline;
+  text-decoration-color: var(--currentWeatherBg);
+  text-decoration-thickness: 0.2rem;
 }
 
 .forecastContainer {
@@ -267,8 +286,6 @@ h5,
   margin-right: 30px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.096);
   padding: 0.75rem;
-  
-
 }
 
 #forecastA,
@@ -276,9 +293,7 @@ h5,
 #forecastC,
 #forecastD,
 #forecastE {
- 
-  border-radius: .5rem;
-  box-shadow: 1px 1px 1px lightslategray;
+  border-radius: 0.25rem;
   text-align: left;
   background-color: rgb(9, 62, 83);
   color: white;

@@ -5,7 +5,7 @@ const key = "1983ca32f2957b79efcb516781e37ea0";
 
 const targetCityWeatherElement = document.querySelector("#targetCityWeather");
 const weatherIconElement = document.querySelector("#weatherIcon");
-  // uv index element
+// uv index element
 const uvIndexSpan = document.querySelector("#currentUv");
 const uvIndexElement = document.querySelector("#currentUvIndex");
 
@@ -17,9 +17,8 @@ const userFormEl = document.querySelector("#user-form");
 const userCityNameElement = document.querySelector("#city-name");
 const searchBtnElement = document.querySelector("#searchBtn");
 
-// small functions 
-const today = moment().format("MMM Do, YYYY");  //function for formatting the date
-
+// small functions
+const today = moment().format("MMM Do, YYYY"); //function for formatting the date
 
 const searchCity = (e) => {
   e.preventDefault(); //Prevent default behaviour of the search input field
@@ -30,9 +29,8 @@ const searchCity = (e) => {
   //Require user to type in a city name
   selectCity
     ? getUserWeather(selectCity, false)
-    : alert("input field cannot be blank");  // alert if the field is blank
+    : alert("input field cannot be blank"); // alert if the field is blank
 };
-
 
 // custom function for fetching data and returning it to store in variables
 const fetchData = async (api) => {
@@ -100,8 +98,6 @@ async function get5day(lat, lon) {
 
   const fiveDaysData = await fetchData(apiURL);
 
-
-
   //Getting UV index for current weather.
   let uvIndex = fiveDaysData.current.uvi;
   uvIndex = Math.ceil(uvIndex); //Round a number upward to its nearest integer
@@ -161,9 +157,7 @@ async function get5day(lat, lon) {
 
 //funciton to access local storage so that history buttons will show weather
 function getHistoryWeather() {
-
-  const cities = JSON.parse(localStorage.getItem("cities")); //getting recent cities
-  
+  let cities = JSON.parse(localStorage.getItem("cities")); //getting recent cities
 
   // displaying recent cities as buttons
   if (cities) {
@@ -181,7 +175,9 @@ searchBtnElement.addEventListener("click", searchCity);
 
 //get weather data for history buttons
 historyLinks.addEventListener("click", (event) => {
-
   let cityName = event.target.textContent;
   getUserWeather(cityName, true);
 });
+
+// getting the history
+getHistoryWeather();

@@ -174,3 +174,6 @@ historyLinks.addEventListener("click",(event)=>{
     let cityName = event.target.textContent;
     getUserWeather(cityName, true);
 })
+
+
+

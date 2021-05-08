@@ -2,7 +2,7 @@
 
 :root {
   --searchBg: rgb(243, 249, 253);
-  --currentWeatherBg: #083f50;
+ 
   --boxShadow: 0 0px 50px -12px rgb(182, 225, 255);
   --layout-border-radius: 8px;
   --gradient: linear-gradient(
@@ -78,6 +78,7 @@ h4 {
   border: none;
   margin-top: 15px;
   transition: all 0.2s ease-in-out;
+  
   background: linear-gradient(
     90deg,
     rgb(45, 40, 134) 0%,
@@ -164,6 +165,7 @@ h4 {
   box-shadow: var(--boxShadow);
   color: whitesmoke;
   position: relative;
+  
 }
 
 .weatherDisplay::after {
@@ -178,7 +180,7 @@ h4 {
 }
 
 .targetDetails {
-  margin-left: 20px;
+  margin-left: 1rem;
   font-size: 20px;
 }
 
@@ -203,19 +205,19 @@ h4 {
 #currentHumid,
 #currentWind {
   margin-left: 8px;
-  font-size: 17px;
+  font-size: 1.25rem;
   margin-right: 3px;
+  font-weight: bold;
 }
 
-#currentUvIndex {
-  height: 30px;
-  width: 120px;
-}
+
 
 #currentUv {
   padding-inline: 0.2rem;
-  border-radius: 0.25rem;
-  background: green;
+  border-radius: 0.5rem;
+  background: lightcoral;
+  color: #3f3f3f;
+  font-weight: bold;
 }
 
 .units {
@@ -255,6 +257,10 @@ h5,
   margin-block: 0.75rem;
 }
 
+.forecast-span{
+  font-weight: bold;
+}
+
 .forecastContainer {
   display: flex;
   flex-wrap: wrap;
@@ -272,6 +278,7 @@ h5,
   padding: 3px;
   min-height: 20px;
   min-width: 20px;
+  color: yellowgreen;
 }
 
 .humidity2 {
@@ -297,8 +304,8 @@ h5,
 #forecastE {
   border-radius: var(--layout-border-radius);
   text-align: left;
-  background-color: rgb(9, 62, 83);
-  color: white;
+  font-weight: bold;
+  color: rgb(92, 92, 92);
   font-size: 18px;
   min-width: 100px;
   min-height: 100px;

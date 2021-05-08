@@ -4,6 +4,7 @@
   --searchBg: rgb(243, 249, 253);
   --currentWeatherBg: #083f50;
   --boxShadow: 0 0px 50px -12px rgb(182, 225, 255);
+  --layout-border-radius:8px;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
 /* html elements */
 
 h1 {
-  padding-top: 15px;
+  
   color: whitesmoke;
   font-family: Arial;
   font-weight: bolder;
@@ -37,7 +38,7 @@ h4 {
 /* header */
 .dashboardHeader {
   text-align: center;
-  padding-block: 0.5rem;
+  padding-block: 0.75rem;
   background: linear-gradient(
     90deg,
     rgba(5, 0, 92, 1) 0%,
@@ -63,7 +64,7 @@ h4 {
   padding: 0.25rem 0.5rem;
   align-items: stretch;
   margin-block: 1.25rem;
-  border-radius: 0.5rem;
+  border-radius: var(--layout-border-radius);
   background: var(--searchBg);
 }
 
@@ -148,14 +149,19 @@ h4 {
 }
 
 .weatherDisplay {
-  display: flex;
-  border-radius: 0.5rem;
-  justify-content: space-between;
+  display: grid;
+  border-radius: var(--layout-border-radius);
+  grid-template-columns: repeat(2,1fr);
   text-align: left;
   margin-top: 20px;
   width: 90%;
   padding: 2rem 2rem;
-  background: var(--currentWeatherBg);
+  background: linear-gradient(
+    90deg,
+    rgb(45, 40, 134) 0%,
+    rgb(37, 37, 149) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
   box-shadow: var(--boxShadow);
   color: whitesmoke;
   position: relative;
@@ -165,8 +171,8 @@ h4 {
   content: "";
   position: absolute;
   height: 80%;
-  width: 2px;
-  background: rgb(9, 84, 114);
+  width: 1px;
+  background: rgba(245, 245, 245, 0.5);
   border-radius: 15%;
   left: 50%;
   bottom: 10%;
@@ -254,6 +260,7 @@ h5,
 .forecastContainer {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .forecastDate {
@@ -291,7 +298,7 @@ h5,
 #forecastC,
 #forecastD,
 #forecastE {
-  border-radius: 0.25rem;
+  border-radius: var(--layout-border-radius);
   text-align: left;
   background-color: rgb(9, 62, 83);
   color: white;

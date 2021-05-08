@@ -105,8 +105,6 @@ async function get5day(lat, lon) {
   uvIndex = Math.ceil(uvIndex);
   uvIndexSpan.textContent = uvIndex;
 
-  
-
   switch (true) {
     case uvIndex >= 0 && uvIndex <= 3:
       uvIndexSpan.setAttribute("style", "background-color: green");
@@ -137,9 +135,7 @@ async function get5day(lat, lon) {
     let p2 = document.createElement("img");
     let p3 = document.createElement("p");
     let p4 = document.createElement("p");
-    p.textContent = moment
-      .unix(day.dt)
-      .format("MM/DD/YYYY");
+    p.textContent = moment.unix(day.dt).format("MM/DD/YYYY");
 
     allDates[index - 1].appendChild(p);
 

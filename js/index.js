@@ -1,5 +1,5 @@
 // info
-const key = "0642f62247cd5fc4b4b2603fcde8ec95";
+const key = "1983ca32f2957b79efcb516781e37ea0";
 
 // SELECTING HTML TAGS
 
@@ -18,23 +18,23 @@ const userCityNameElement = document.querySelector("#city-name");
 const searchBtnElement = document.querySelector("#searchBtn");
 
 // small functions 
-const citySelect = userCityNameElement.value.trim();  //function for removing whitespaces
 const today = moment().format("MMM Do, YYYY");  //function for formatting the date
 
 
 const searchCity = (e) => {
-  e.preventDefault(); //Prevent default behaviour of input field
+  e.preventDefault(); //Prevent default behaviour of the search input field
 
   //Get city name from form input
-  const selectCity = userCityNameElement.value.trim();
+  const selectCity = userCityNameElement.value.trim(); //function for removing whitespaces
 
   //Require user to type in a city name
-
   selectCity
     ? getUserWeather(selectCity, false)
-    : alert("input field cannot be blank");
+    : alert("input field cannot be blank");  // alert if the field is blank
 };
 
+
+// custom function for fetching data and returning it to store in variables
 const fetchData = async (api) => {
   const res = await fetch(api);
   const data = await res.json();
@@ -46,8 +46,9 @@ const fetchData = async (api) => {
 //on user form input
 async function getUserWeather(cityName, isFromHistory) {
   //Take above parameter to build URL string
+
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=imperial`;
-  //make API call
+
   const weatherData = await fetchData(apiURL);
 
   //extract needed data from the response
@@ -64,7 +65,7 @@ async function getUserWeather(cityName, isFromHistory) {
   );
   weatherIconElement.appendChild(weatherIcon);
 
-  //Change current weather elements using data extract from response
+  //Change current weather elements using data extracted from response
   currentCity.textContent = cityName;
   currentTemp.textContent = temp + " °F";
   currentWind.textContent = speed + " mph";
@@ -94,18 +95,19 @@ async function getUserWeather(cityName, isFromHistory) {
 
 //call to get 5 day forecast features
 async function get5day(lat, lon) {
-  var apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=0642f62247cd5fc4b4b2603fcde8ec95&units=imperial`;
+  const apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`;
   //API request
 
   const fiveDaysData = await fetchData(apiURL);
 
-  console.log(fiveDaysData);
+
 
   //Getting UV index for current weather.
   let uvIndex = fiveDaysData.current.uvi;
-  uvIndex = Math.ceil(uvIndex);
-  uvIndexSpan.textContent = uvIndex;
+  uvIndex = Math.ceil(uvIndex); //Round a number upward to its nearest integer
+  uvIndexSpan.textContent = uvIndex; //showing uv index
 
+  // changing color based on uv-index by using switch statement
   switch (true) {
     case uvIndex >= 0 && uvIndex <= 3:
       uvIndexSpan.setAttribute("style", "background-color: green");
@@ -157,10 +159,13 @@ async function get5day(lat, lon) {
   }
 }
 
-//funciton to access local storage so history buttons will show weather
+//funciton to access local storage so that history buttons will show weather
 function getHistoryWeather() {
-  const cities = JSON.parse(localStorage.getItem("cities"));
 
+  const cities = JSON.parse(localStorage.getItem("cities")); //getting recent cities
+  
+
+  // displaying recent cities as buttons
   if (cities) {
     for (let index = 0; index < cities.length; index++) {
       let btn = document.createElement("button");
@@ -176,6 +181,7 @@ searchBtnElement.addEventListener("click", searchCity);
 
 //get weather data for history buttons
 historyLinks.addEventListener("click", (event) => {
+
   let cityName = event.target.textContent;
   getUserWeather(cityName, true);
 });

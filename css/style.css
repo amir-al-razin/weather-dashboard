@@ -4,7 +4,13 @@
   --searchBg: rgb(243, 249, 253);
   --currentWeatherBg: #083f50;
   --boxShadow: 0 0px 50px -12px rgb(182, 225, 255);
-  --layout-border-radius:8px;
+  --layout-border-radius: 8px;
+  --gradient: linear-gradient(
+    90deg,
+    rgba(5, 0, 92, 1) 0%,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 * {
@@ -22,7 +28,6 @@ body {
 /* html elements */
 
 h1 {
-  
   color: whitesmoke;
   font-family: Arial;
   font-weight: bolder;
@@ -39,12 +44,7 @@ h4 {
 .dashboardHeader {
   text-align: center;
   padding-block: 0.75rem;
-  background: linear-gradient(
-    90deg,
-    rgba(5, 0, 92, 1) 0%,
-    rgba(9, 9, 121, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: var(--gradient);
 }
 
 .container {
@@ -54,7 +54,6 @@ h4 {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-
   gap: 3rem;
 }
 
@@ -151,7 +150,7 @@ h4 {
 .weatherDisplay {
   display: grid;
   border-radius: var(--layout-border-radius);
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   text-align: left;
   margin-top: 20px;
   width: 90%;
@@ -253,14 +252,12 @@ h5,
 .fiveDayForecast > h3 {
   font-weight: bold;
   font-size: 2rem;
-  margin-block: .75rem;
-
+  margin-block: 0.75rem;
 }
 
 .forecastContainer {
   display: flex;
   flex-wrap: wrap;
-  
 }
 
 .forecastDate {

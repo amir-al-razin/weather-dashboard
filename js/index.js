@@ -68,7 +68,6 @@ async function getUserWeather(cityName, isFromHistory) {
   currentTemp.textContent = temp + " °F";
   currentWind.textContent = speed + " mph";
   currentHumid.textContent = humidity + " %";
-  //currentUv.textContent = getUvIndex()
   currentDate.textContent = today;
 
   //create button for search history
@@ -167,7 +166,7 @@ function getHistoryWeather() {
 
   if (cities) {
     for (let index = 0; index < cities.length; index++) {
-      var btn = document.createElement("button");
+      let btn = document.createElement("button");
       btn.classList = "historyCityBtn";
       btn.textContent = cities[index];
       historyLinks.appendChild(btn);

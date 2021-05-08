@@ -1,10 +1,11 @@
 // info
 const key = "0642f62247cd5fc4b4b2603fcde8ec95";
 
-// html dom selector
+// SELECTING HTML TAGS
+
 const targetCityWeatherElement = document.querySelector("#targetCityWeather");
 const weatherIconElement = document.querySelector("#weatherIcon");
-// uv index element
+  // uv index element
 const uvIndexSpan = document.querySelector("#currentUv");
 const uvIndexElement = document.querySelector("#currentUvIndex");
 
@@ -16,13 +17,13 @@ const userFormEl = document.querySelector("#user-form");
 const userCityNameElement = document.querySelector("#city-name");
 const searchBtnElement = document.querySelector("#searchBtn");
 
-// helper function
-const citySelect = userCityNameElement.value.trim();
-const today = moment().format("MMM Do, YYYY");
+// small functions 
+const citySelect = userCityNameElement.value.trim();  //function for removing whitespaces
+const today = moment().format("MMM Do, YYYY");  //function for formatting the date
 
-//Prevent default on seach button
+
 const searchCity = (e) => {
-  e.preventDefault();
+  e.preventDefault(); //Prevent default behaviour of input field
 
   //Get city name from form input
   const selectCity = userCityNameElement.value.trim();
@@ -110,13 +111,13 @@ async function get5day(lat, lon) {
       uvIndexSpan.setAttribute("style", "background-color: green");
       break;
     case uvIndex > 3 && uvIndex <= 6:
-      uvIndexSpan.setAttribute("style", "background-color: yellow");
+      uvIndexSpan.setAttribute("style", "background-color: lightyellow");
       break;
     case uvIndex > 6 && uvIndex <= 7:
       uvIndexSpan.setAttribute("style", "background-color: orange");
       break;
     case uvIndex > 7 && uvIndex <= 10:
-      uvIndexSpan.setAttribute("style", "background-color: red");
+      uvIndexSpan.setAttribute("style", "background-color: lightcoral");
       break;
     case uvIndex >= 11:
       uvIndexSpan.setAttribute("style", "background-color: violet");

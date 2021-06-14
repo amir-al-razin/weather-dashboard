@@ -162,7 +162,9 @@ async function get5day(lat, lon) {
 //funciton to access local storage so that history buttons will show weather
 function getHistoryWeather() {
 
-  const cities = JSON.parse(localStorage.getItem("cities")); //getting recent cities
+  const citiesResponse = JSON.parse(localStorage.getItem("cities")); //getting recent citiesResponse
+  const cities = citiesResponse.filter((v,i,s)=>s.indexOf(v)===i) // filtering for getting unique values
+  
   
 
   // displaying recent cities as buttons
